@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.pyc
+.tmp/
+node_modules/
+.next/
+ml_models/*.pkl
+ml_models/*.h5
+*.egg-info/
+dist/
+build/
+.vscode/
+.gemini/

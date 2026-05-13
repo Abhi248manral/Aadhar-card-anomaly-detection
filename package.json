@@ -1,0 +1,18 @@
+{
+  "name": "aadhaarintel-rfid-bridge",
+  "version": "1.0.0",
+  "description": "AadhaarIntel RFID Bridge — Arduino MFRC522 to web UI via Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@serialport/parser-readline": "^13.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.7",
+    "express": "^4.22.1",
+    "serialport": "^13.0.0",
+    "socket.io": "^4.8.3"
+  }
+}
