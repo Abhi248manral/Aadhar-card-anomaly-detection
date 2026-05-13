@@ -1,0 +1,523 @@
+/* ============================================
+   AadhaarIntel — Enhanced Animations & Micro-Interactions v3
+   Premium feel · Smooth transitions · Performance-first
+   ============================================ */
+
+/* ---- Loading Animation (premium pulse) ---- */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 20px rgba(99,102,241,0.1); }
+  50%      { box-shadow: 0 0 40px rgba(99,102,241,0.25); }
+}
+
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.85); }
+  70%  { transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rippleEffect {
+  0%   { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes checkmark {
+  0%   { stroke-dashoffset: 50; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes subtleBounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+/* ---- Premium Loading Screen ---- */
+.loading-screen {
+  animation: fadeIn 0.4s ease;
+}
+
+.loading-spinner {
+  animation: spin 0.7s linear infinite, breathe 2s ease-in-out infinite;
+}
+
+/* ---- Intersection Observer reveal classes ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---- Enhanced KPI Cards ---- */
+.kpi-card {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, box-shadow;
+}
+
+.kpi-card:nth-child(1) { animation-delay: 0.05s; }
+.kpi-card:nth-child(2) { animation-delay: 0.10s; }
+.kpi-card:nth-child(3) { animation-delay: 0.15s; }
+.kpi-card:nth-child(4) { animation-delay: 0.20s; }
+.kpi-card:nth-child(5) { animation-delay: 0.25s; }
+.kpi-card:nth-child(6) { animation-delay: 0.30s; }
+
+.kpi-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease,
+              border-color 0.2s ease;
+}
+
+.kpi-card:active {
+  transform: translateY(-1px) scale(0.99);
+  transition: transform 0.1s ease;
+}
+
+.kpi-value {
+  animation: countUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ---- Enhanced Cards ---- */
+.card {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease,
+              border-color 0.2s ease;
+}
+
+/* ---- Button Micro-interactions ---- */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.btn:active::after {
+  transform: scale(2.5);
+  opacity: 1;
+  transition: transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(99,102,241,0.4), 0 0 60px rgba(99,102,241,0.15);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(99,102,241,0.2);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-1px);
+}
+
+.btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(239,68,68,0.3);
+}
+
+/* ---- Nav Link Transition Upgrade ---- */
+.nav-link {
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.nav-link:hover {
+  transform: translateX(4px);
+  background: rgba(255,255,255,0.04);
+}
+
+.nav-link.active {
+  animation: slideInRight 0.3s ease;
+}
+
+.nav-link svg {
+  transition: transform 0.2s ease, opacity 0.15s ease;
+}
+
+.nav-link:hover svg {
+  transform: scale(1.12);
+}
+
+/* ---- Badge Pulse Animation ---- */
+.badge-critical {
+  animation: subtleBounce 2s ease-in-out infinite;
+}
+
+.badge-live::before {
+  animation: dotPulse 1.2s ease-in-out infinite;
+}
+
+/* ---- Table Row Hover ---- */
+.data-table tbody tr {
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.data-table tbody tr:hover {
+  background: rgba(99,102,241,0.06);
+}
+
+/* ---- Search Box Focus ---- */
+.search-box {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.search-box:focus-within {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12), 0 4px 20px rgba(99,102,241,0.1);
+}
+
+/* ---- Sidebar Hover Glow ---- */
+.sidebar {
+  transition: box-shadow 0.3s ease;
+}
+
+.sidebar:hover {
+  box-shadow: 6px 0 40px rgba(99,102,241,0.08);
+}
+
+/* ---- Progress Bar Animation ---- */
+.progress-fill {
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: shimmer 2s infinite;
+  background-size: 200% 100%;
+}
+
+/* ---- Chart Container Entrance ---- */
+.chart-container {
+  animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+/* ---- Tooltip Upgrade ---- */
+[data-tooltip]::after {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  transform: translateX(-50%) translateY(4px);
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---- Map Section Entrance ---- */
+.india-map-section {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+/* ---- State Info Panel Transitions ---- */
+.state-info-panel {
+  transition: box-shadow 0.3s ease;
+}
+
+.state-info-panel:has(.state-info-header) {
+  animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.state-metric-item {
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.state-metric-item:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 16px rgba(99,102,241,0.1);
+}
+
+/* ---- Language Switcher ---- */
+.lang-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.lang-btn:hover {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+
+.lang-btn svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: rgba(14,14,24,0.98);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 6px;
+  min-width: 200px;
+  max-height: 360px;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  backdrop-filter: blur(24px);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lang-dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.12s ease;
+  border: none;
+  background: none;
+  width: 100%;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.lang-option:hover {
+  background: rgba(99,102,241,0.08);
+  color: var(--text-primary);
+}
+
+.lang-option.active {
+  background: rgba(99,102,241,0.12);
+  color: var(--accent-light);
+}
+
+.lang-option-name {
+  font-weight: 500;
+}
+
+.lang-option-native {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.lang-option.active .lang-option-native {
+  color: var(--accent);
+}
+
+.lang-check {
+  width: 16px;
+  height: 16px;
+  color: var(--accent-light);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.lang-option.active .lang-check {
+  opacity: 1;
+}
+
+/* ---- Notification Toast ---- */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background: rgba(14,14,24,0.96);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  backdrop-filter: blur(20px);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  min-width: 280px;
+  max-width: 400px;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.toast-exit {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.toast-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.toast-success { border-left: 3px solid var(--success); }
+.toast-error   { border-left: 3px solid var(--danger); }
+.toast-info    { border-left: 3px solid var(--accent); }
+
+/* ---- Page Transition Overlay ---- */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(7,7,13,0.6);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.page-transition.active {
+  opacity: 1;
+}
+
+/* ---- Accessibility: Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .reveal-left, .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- Mobile Enhancements ---- */
+@media (max-width: 1024px) {
+  .lang-dropdown {
+    right: auto;
+    left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+  .toast {
+    min-width: auto;
+    max-width: 100%;
+  }
+  .lang-btn span:not(.lang-btn-flag) {
+    display: none;
+  }
+}
